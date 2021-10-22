@@ -30,11 +30,12 @@ public class IterativeSorter {
 		for (int j = 1; j < n; j++) {  
 			int key = arrayToSort.read(j);  
 			int i = j-1;  
-			while ( (i > -1) && ( arrayToSort.read(i) > key ) ) {  
-				arrayToSort.write(i + 1, i); 
+			while ( (i >= 0) && (arrayToSort.read(i) > key ) ) {  
+				int temp = arrayToSort.read(i);
+				arrayToSort.write(i, arrayToSort.read(i + 1)); 
+				arrayToSort.write(i+1, temp);
 				i--;  
 			}  
-			arrayToSort.write(i+1, key);
 		}  
 	}  
 }
